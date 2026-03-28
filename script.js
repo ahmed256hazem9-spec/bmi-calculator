@@ -1,32 +1,18 @@
-body {
-    font-family: Arial;
-    background: #f0f0f0;
-    text-align: center;
-}
+function calculateBMI() {
+    let weight = document.getElementById("weight").value;
+    let height = document.getElementById("height").value / 100;
 
-.container {
-    background: white;
-    padding: 20px;
-    margin: 100px auto;
-    width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px gray;
-}
+    let bmi = weight / (height * height);
 
-input {
-    width: 90%;
-    padding: 10px;
-    margin: 10px;
-}
+    let result = document.getElementById("result");
 
-button {
-    padding: 10px 20px;
-    background: blue;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background: darkblue;
+    if (bmi < 18.5) {
+        result.innerText = "Underweight ";
+    } else if (bmi >= 18.5 && bmi < 25) {
+        result.innerText = "Normal ";
+    } else if (bmi >= 25 && bmi < 30) {
+        result.innerText = "Overweight ";
+    } else {
+        result.innerText = "Obese ";
+    }
 }
