@@ -4,8 +4,8 @@ function calculateBMI() {
   let result = document.getElementById("result");
 
   if (!weight || !heightCm || weight <= 0 || heightCm <= 0) {
-    result.innerText = "Please enter valid values";
-    result.style.color = "red";
+    result.innerText = "Enter your weight and height";
+    result.style.color = "#555";
     return;
   }
 
