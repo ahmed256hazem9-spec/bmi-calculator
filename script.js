@@ -1,22 +1,28 @@
 function calculateBMI() {
-  let weight = document.getElementById("weight").value;
-  let height = document.getElementById("height").value / 100;
+  let weight = parseFloat(document.getElementById("weight").value);
+  let heightCm = parseFloat(document.getElementById("height").value);
   let result = document.getElementById("result");
 
-  if (weight === "" || height === "") {
-    result.innerText = "Please enter all values";
+  if (!weight || !heightCm || weight <= 0 || heightCm <= 0) {
+    result.innerText = "Please enter valid values";
+    result.style.color = "red";
     return;
   }
 
-  let bmi = (weight / (height * height)).toFixed(1);
+  let heightM = heightCm / 100;
+  let bmi = (weight / (heightM * heightM)).toFixed(1);
 
   if (bmi < 18.5) {
-    result.innerText = "Underweight";
+    result.innerText = `BMI: ${bmi} - Underweight`;
+    result.style.color = "#f59e0b";
   } else if (bmi < 25) {
-    result.innerText = "Normal";
+    result.innerText = `BMI: ${bmi} - Normal`;
+    result.style.color = "#10b981";
   } else if (bmi < 30) {
-    result.innerText = "Overweight";
+    result.innerText = `BMI: ${bmi} - Overweight`;
+    result.style.color = "#f97316";
   } else {
-    result.innerText = "Obese";
+    result.innerText = `BMI: ${bmi} - Obese`;
+    result.style.color = "#ef4444";
   }
 }
